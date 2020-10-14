@@ -24,8 +24,8 @@ console.log(process.env.DB_USER);
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
-  const volunteerCollections = client.db(process.config.DB_PASS).collection("VolunteerLists");
-  const registrationCollections = client.db(process.config.DB_PASS).collection("RegisterLists");
+  const volunteerCollections = client.db(process.config.DB_NAME).collection("VolunteerLists");
+  const registrationCollections = client.db(process.config.DB_NAME).collection("RegisterLists");
   
   app.post('/addVolunteerList', (req, res) => {
     const volunteerCollection = req.body;
